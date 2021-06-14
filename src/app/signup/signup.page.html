@@ -1,0 +1,64 @@
+
+  <ion-toolbar translucent="true" color="light" >
+    <ion-buttons slot="start">
+      <ion-back-button color="tertiary" defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="tertiary" class="ion-header">Criar Conta</ion-title>
+  </ion-toolbar>
+
+
+<ion-content color="light" >
+  <form [formGroup]="signupForm">
+    <ion-grid>
+
+      <ion-row class="img-col">
+        <ion-col size-md="6" offset-md="3" class="img-col">
+          <ion-img src="assets/logo.png"></ion-img>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3" class="ion-margin-top-card">
+          <ion-card>
+            <ion-item lines="none">
+              <ion-icon name="mail-outline" slot="start" color="tertiary"></ion-icon>
+              <ion-input type="email" name="email" placeholder="E-mail" formControlName="email"></ion-input>
+            </ion-item>
+          </ion-card>
+          <ion-item *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+      color="light" lines="none" class="ion-no-margin-top">
+      <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+      <ion-text color="danger">
+          <small> E-mail inválido! </small>
+        </ion-text>
+      </ion-item>
+          <ion-card>
+            <ion-item lines="none">
+              <ion-icon name="lock-closed-outline" slot="start" color="tertiary"></ion-icon>
+              <ion-input type="password" name="password" placeholder="Senha" formControlName="password"></ion-input>
+            </ion-item>
+          </ion-card>
+          <ion-item *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+      color="light" lines="none" class="ion-no-margin-top">
+      <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+      <ion-text color="danger">
+          <small> A senha precisa ter 8 caracteres, contendo uma letra maiúscula, uma minúscula e um número! </small>
+        </ion-text>
+      </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="ion-btn ion-margin-top">
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button shape="round" color="tertiary" expand="block" [disabled]="!signupForm.valid" (click)="signUpWithEmailPassword()">
+            <ion-icon name="log-in-outline" slot="start"></ion-icon>
+            <small>Signup</small>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>

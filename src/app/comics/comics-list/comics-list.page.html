@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary" class="ion-header">Quadrinhos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+
+
+  <ion-card size-sm="3" offset-sm="1" *ngFor="let comic of comics" >
+    <img src="{{comic.imageUrl }}">
+    <ion-card-header>
+
+      <ion-card-title>{{comic.titulo}}</ion-card-title>
+      <ion-card-subtitle>{{comic.autor}}</ion-card-subtitle>
+      <ion-card-subtitle>{{comic.editora}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-subtitle>Lançamento: {{comic.dataLan | date: 'dd/MM/yyyy' }}</ion-card-subtitle>
+      <ion-card-subtitle>Edições/Volumes: {{comic.edicao}} de {{comic.totaledicao}}</ion-card-subtitle>
+      <ion-card-subtitle>Formato: {{comic.formato}}</ion-card-subtitle>
+      <ion-card-subtitle>Agenda: {{comic.agenda}}</ion-card-subtitle>
+      <ion-card-subtitle>Status de Leitura: {{comic.status}}</ion-card-subtitle>
+    </ion-card-content>
+    <!-- <ion-row>
+
+        <ion-button color="danger"  size="small" class="ion-btn-trash" (click)="remove(comic.id)">
+          <ion-icon name="trash" slot="icon-only" size="small"></ion-icon>
+        </ion-button>
+
+        <ion-button size="small" [routerLink]="['edit-comic/{{comic.id}}']">
+          <ion-icon name="create-outline" slot="icon-only" size="small"></ion-icon>
+        </ion-button>
+
+    </ion-row> -->
+  </ion-card>
+
+
+
+
+
+</ion-content>

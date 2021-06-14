@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button color="tertiary" defaultHref="profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="tertiary">Editar perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content color="light">
+  <form [formGroup]="registerForm"  (ngSubmit)="onCreateReg(registerForm.value)">
+    <ion-grid>
+
+
+            <ion-row class="ion-margin-pro">
+              <ion-col size-sm="6" offset-sm="3">
+                <ion-avatar>
+                  <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+                </ion-avatar>
+                </ion-col >
+              </ion-row>
+                <ion-row class="ion-btn-file" >
+                  <ion-col size-sm="6" offset-sm="3">
+                    <ion-button size="small" for="fileInput" color="tertiary" shape="round" expand="block">
+                      <input id="fileInput" type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
+                     (change)="showPreview($event)">
+                      <ion-icon slot="start" name="image-outline" ></ion-icon>
+                      <small>Escolher foto</small>
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col size-sm="6" offset-sm="3" class="ion-margin-top">
+                  <ion-card>
+                  <ion-item lines="none">
+                <ion-input type="text" name="nome" formControlName="nome" placeholder="Nome"></ion-input>
+            </ion-item>
+          </ion-card>
+
+
+
+          <ion-card>
+            <ion-item lines="none">
+              <ion-input type="email" name="email" formControlName="email" placeholder="E-mail"></ion-input>
+            </ion-item>
+          </ion-card>
+
+
+          <ion-card>
+            <ion-item lines="none">
+              <ion-datetime displayFormat="DD/MM/YYYY"
+              formControlName="dataNas" placeholder="Data de Nascimento" name="dataNas"></ion-datetime>
+            </ion-item>
+          </ion-card>
+
+          </ion-col>
+          </ion-row>
+
+
+
+          <ion-row class="ion-margin-btn ion-text-center ion-btn-add">
+            <ion-col size-sm="6" offset-sm="3">
+              <ion-button shape="round" color="tertiary" expand="block" type="submit">
+              <ion-icon name="add-outline" slot="start"></ion-icon>
+              <small>Adicionar</small>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>

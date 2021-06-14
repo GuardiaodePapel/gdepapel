@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary" class="ion-header">Adicionar Quadrinho</ion-title>
+
+    <ion-button  color="tertiary" type="submit" slot="primary" fill="clear" (click)="onCreateComic( comicForm.value)">
+      <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+
+      </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <form [formGroup]="comicForm" (ngSubmit)="onCreateComic( comicForm.value)">
+    <ion-grid>
+      <ion-row class="ion-margin-pro">
+        <ion-col size-sm="2" offset-sm="1">
+          <ion-card class="ion-card-img">
+            <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+          </ion-card>
+
+          </ion-col >
+
+            <ion-col offset-sm="1" class="ion-btn-file">
+              <ion-button size="small" for="fileInput" color="tertiary" shape="round" expand="block">
+                <input id="fileInput" type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
+               (change)="showPreview($event)">
+                <ion-icon slot="start" name="image-outline" ></ion-icon>
+                <small>Escolher foto</small>
+              </ion-button>
+</ion-col>
+</ion-row>
+
+<ion-row class="ion-margin-pro">
+  <ion-col size-sm="6" offset-sm="3">
+          <ion-card>
+            <ion-item lines="none">
+              <ion-input type="text" name="titulo" formControlName="titulo" placeholder="Título"></ion-input>
+            </ion-item>
+          </ion-card>
+
+          <ion-card>
+            <ion-item lines="none">
+              <ion-input type="text" name="autor" formControlName="autor" placeholder="Autor"></ion-input>
+            </ion-item>
+          </ion-card>
+
+          <ion-card>
+            <ion-item lines="none">
+              <ion-input type="text" name="editora" formControlName="editora" placeholder="Editora"></ion-input>
+            </ion-item>
+          </ion-card>
+
+          <ion-card>
+            <ion-item lines="none">
+              <ion-datetime display-format="D/M/YYYY" picker-format="D M YYYY" formControlName="dataLan" placeholder="Data de Lançamento" name="dataLan"></ion-datetime>
+            </ion-item>
+          </ion-card>
+          </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-no-margin-top">
+            <ion-col size-sm="3" offset-sm="3" class="ion-no-margin-top">
+              <ion-card>
+                <ion-item lines="none">
+                  <ion-input type="text" name="edicao" formControlName="edicao" placeholder="Edição"></ion-input>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+            <ion-col size-sm="3" offset-sm="3" class="ion-no-margin-top">
+              <ion-card>
+                <ion-item lines="none">
+                  <ion-input type="text" name="totaledicao" formControlName="totaledicao" placeholder="Total de edições"></ion-input>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-no-margin-top">
+            <ion-col size-sm="3" offset-sm="3" class="ion-no-margin-top">
+              <ion-card>
+                <ion-item lines="none">
+                  <ion-select placeholder="Formato" formControlName="formato" name="formato">
+                    <ion-select-option value="ongoing">Ongoing Series</ion-select-option>
+                    <ion-select-option value="limited">Limited Series</ion-select-option>
+                    <ion-select-option value="tpb">Trade Paperback</ion-select-option>
+                    <ion-select-option value="oneshot">One-shot</ion-select-option>
+                    <ion-select-option value="novel">Graphic Novel</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+            <ion-col size-sm="3" offset-sm="3" class="ion-no-margin-top">
+              <ion-card>
+                <ion-item lines="none">
+                  <ion-select placeholder="Agenda" formControlName="agenda" name="agenda">
+                    <ion-select-option value="semanal">Semanal</ion-select-option>
+                    <ion-select-option value="mensal">Mensal</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-no-margin-top">
+            <ion-col size-sm="6" offset-sm="3" class="ion-no-margin-top">
+              <ion-card>
+                <ion-item lines="none">
+                  <ion-select placeholder="Status de leitura" formControlName="status" name="status">
+                    <ion-select-option value="lido">Lido</ion-select-option>
+                    <ion-select-option value="lendo">Lendo</ion-select-option>
+                    <ion-select-option value="queroler">Quero ler</ion-select-option>
+                    <ion-select-option value="abandonado">Abandonado</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+
+    </ion-grid>
+  </form>
+</ion-content>
+

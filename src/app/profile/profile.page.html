@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button color="tertiary">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary" class="ion-header">Visualizar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding"   *ngIf="auth.user | async as user" color="light">
+<ion-grid>
+  <ion-card *ngIf="item">
+
+      <ion-row class="ion-margin-pro" >
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-avatar>
+            <img src="{{item.imageUrl}}" >
+          </ion-avatar>
+          </ion-col >
+        </ion-row>
+
+        <ion-row class="ion-margin-name" >
+          <ion-col size-sm="6" offset-sm="3" class="ion-text-center">
+            <ion-card-subtitle>Nome:</ion-card-subtitle>
+              <ion-card-title>{{ item.nome }}</ion-card-title>
+
+
+            </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-margin-view" >
+            <ion-col size-sm="6" offset-sm="3" >
+              <ion-card-subtitle>E-mail:</ion-card-subtitle>
+
+                <ion-card-title >{{ item.email }}</ion-card-title>
+
+
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-margin-view" >
+            <ion-col size-sm="6" offset-sm="3">
+              <ion-card-subtitle>Data de Nascimento:</ion-card-subtitle>
+              <ion-card-title>{{ item.dataNas  | date: 'dd/MM/yyyy' }}</ion-card-title>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-margin-view" >
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-button expand="block" routerLink="/profile/edit-profile/{{ item.uid }}" color="tertiary" shape="round" class="ion-margin-btn" size="small">
+              <ion-icon name="create-outline" slot="start"></ion-icon>
+              <small> Editar perfil </small>
+            </ion-button>
+            </ion-col>
+            </ion-row>
+
+
+
+  </ion-card>
+</ion-grid>
+  <!-- Perfil local -->
+
+
+
+
+</ion-content>

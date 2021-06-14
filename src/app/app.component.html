@@ -1,0 +1,44 @@
+<ion-app>
+  <ion-menu side="start">
+      <ion-header>
+          <ion-toolbar color="light">
+              <ion-title color="tertiary">
+                  Guardião de Papel
+              </ion-title>
+          </ion-toolbar>
+      </ion-header>
+
+
+      <ion-content color="light">
+        <ion-row class="img-col">
+          <ion-col size-md="6" offset-md="3" class="img-col">
+            <ion-img src="assets/logo.png"></ion-img>
+          </ion-col>
+        </ion-row>
+          <ion-list color="light">
+              <ion-menu-toggle color="light">
+                  <ion-item lines="none" routerLink="/comics/tabs/comics-list" color="light">
+                      <ion-icon name="book-outline" slot="start" color="tertiary"></ion-icon>
+                      <ion-label color="tertiary">Quadrinhos</ion-label>
+                  </ion-item>
+              </ion-menu-toggle>
+              <ion-menu-toggle color="light">
+                  <ion-item lines="none" routerLink="/profile" color="light">
+                      <ion-icon name="person-outline" slot="start" color="tertiary"></ion-icon>
+                      <ion-label color="tertiary">Perfil</ion-label>
+                  </ion-item>
+              </ion-menu-toggle>
+
+          </ion-list>
+      </ion-content>
+      <ion-footer color="light">
+        <ion-menu-toggle color="light">
+          <ion-item lines="none" button (click)="logout()" color="light">
+              <ion-icon name="exit" slot="end" color="tertiary"></ion-icon>
+              <ion-label color="tertiary">Logout</ion-label>
+          </ion-item>
+      </ion-menu-toggle>
+      </ion-footer>
+  </ion-menu>
+  <ion-router-outlet main ></ion-router-outlet>
+</ion-app>
